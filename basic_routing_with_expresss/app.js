@@ -3,11 +3,9 @@ const express = require("express");
 const fs = require("fs/promises");
 const path = require('path');
 const { send } = require("process");
-const mySql = require('mysql2')
+const mySql = require('mysql2');
 const app = express();
-/*
 
-*/
 
  
 
