@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const indexRouter = require("./routers")
 const postRouter = require('./routers/post');
-const sequelize = require('./db_utils/connection')
+const sequelize = require('./db_utils/connection');
 
 
 app.use(express.static(path.join(__dirname,"public")))
@@ -20,8 +20,7 @@ app.use('/post', postRouter)
 
 sequelize.sync()
 .then((result)=>{
-    console.log('sss')
-    console.log(result);
+    console.log(sequelize.models);
     app.listen(3000)
 })
 .catch((err)=>{
