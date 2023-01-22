@@ -6,7 +6,7 @@ router.get('/',(req,res)=>{
     res.render(path.join(__dirname,'../views/post.ejs'));
 });
 router.post('/', (req,res)=>{
-    console.log(req.body)
+    
     let avatar = req.body.avatar
     let title = req.body.title
     let description = req.body.description

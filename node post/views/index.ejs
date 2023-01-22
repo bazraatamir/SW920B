@@ -16,7 +16,23 @@
             </ul>
         </nav>
     </header>
+    <main>
+        <div class="container">
 
+    <%for(product of products){%>
+        <div class="post">
+            <img src="<%=product.avatar%>" alt="">
+            <h2><%=product.title%></h2>
+            <p><%=product.description%></p>
+            <p><%=product.price%></p>
+            <a href="/edit/<%=product.id%>">засах</a>
+            <a href="/delete/<%=product.id%>">устгах</a>
+
+        </div>
+    <%}%>
+    </div>
+
+    </main>
 
 
 
