@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const mongoose = require('mongoose')
 const indexRouter = require("./routers")
 const postRouter = require('./routers/post');
-const editRouter = require('./routers/edit')
-const sequelize = require('./db_utils/connection');
+const adminRouter = require('./routers/admin');
+const editRouter = require('./routers/edit');
+
 
 
 app.use(express.static(path.join(__dirname,"public")))
@@ -17,14 +19,17 @@ app.set('view engine',"ejs");
 app.set('views',"views");
 
 app.all(["/",'index'],indexRouter);
-app.use('/post', postRouter);
-app.use('/edit',editRouter)
 
-sequelize.sync()
+app.use('/post', postRouter);
+app.use('/admin',adminRouter);
+app.use('/edit',editRouter);
+
+mongoose.connect('mongodb+srv://bazarragchaa:bazraa12@cluster0.gdwdrpv.mongodb.net/project1')
 .then((result)=>{
-    console.log(sequelize.models);
     app.listen(3000)
 })
-.catch((err)=>{
-    throw err
+.catch(err=>{
+    console.log(err)
 })
+
+

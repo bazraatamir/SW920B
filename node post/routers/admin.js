@@ -7,7 +7,7 @@ const productModel = require("../model/product")
 router.get('/',(req,res)=>{
     productModel.find()
     .then((product)=>{
-      res.render(path.join(__dirname,'../views/index'),{products:product})    
+      res.render(path.join(__dirname,'../views/admin'),{products:product})    
     })
 })
 module.exports = router
