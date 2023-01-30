@@ -22,7 +22,6 @@ router.post('/',(req,res)=>{
     console.log(productId)
     productModel.findById(productId)
     .then((product)=>{
-        console.log(product)
         product.avatar = updateavatar,
         product.title =updatetitle,
         product.description = updatedescription,

@@ -11,19 +11,20 @@ router.post('/', (req,res)=>{
     let description = req.body.description
     let price = req.body.price
     let product = new productModel({
-       avatar:avatar,
+        avatar:avatar,
         title:title,
         description:description,
-        price:price
+        price:price,
+        UserId:req.user
     })
     product.save()
     .then((result)=>{
         console.log(result);
-    res.redirect('/')
+    res.redirect('/');
 
     })
     .catch((err)=>{
-        console.log(err)
+        console.log(err);
     })
 }
 
