@@ -13,8 +13,6 @@
             <ul>
                 <li><a href="/">нүүр</a></li>
                 <li><a href="/post">пост</a></li>
-                <li><a href="/carts">carts</a></li>
-
             </ul>
         </nav>
     </header>
@@ -22,11 +20,11 @@
         <div class="container">
     <%for(product of products){%>
         <div class="post">
-            <img src="<%=product.avatar%>" alt="">
             <h2><%=product.title%></h2>
             <p><%=product.description%></p>
             <p><%=product.price%></p>
-            <a href="/cart/<%=product.id%>">захиалах</a>
+            <a href="/<%=product.id%>">захиалах</a>
+           
         </div>
     <%}%>
     </div>

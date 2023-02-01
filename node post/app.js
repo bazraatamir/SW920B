@@ -7,6 +7,7 @@ const User = require('./model/user')
 const postRouter = require('./routers/post');
 const adminRouter = require('./routers/admin');
 const editRouter = require('./routers/edit');
+const cartRouter = require('./routers/cart')
 const { find } = require('./model/product');
 
 
@@ -36,7 +37,8 @@ app.all(["/",'index'],indexRouter);
 app.use('/post', postRouter);
 app.use('/admin',adminRouter);
 app.use('/edit',editRouter);
-
+app.use('/cart',cartRouter);
+mongoose.set('strictQuery',true)
 mongoose.connect('mongodb+srv://bazarragchaa:bazraa12@cluster0.gdwdrpv.mongodb.net/project1')
 .then((result)=>{
     User.findOne({id:`63d7457984c0cf103c692ca0
